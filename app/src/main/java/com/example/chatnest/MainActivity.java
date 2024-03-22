@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements view.OnclickListener {
 
     Button signupbtn,loginbtn,forgot;
 
@@ -26,25 +26,30 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         signupbtn=findViewById(R.id.signup_button);
-        loginbtn=findViewById(R.id.login_button);
+        loginbtn=findViewById(R.id.logRin_button);
         forgot = findViewById(R.id.send_password);
 
-        signupbtn.setOnClickListener(new View.OnClickListener() {
+        signupbtn.setOnClickListener(this);
+        loginbtn.setOnClickListener(this);
+        forgot.setOnClickListener(this);    
             @Override
             public void onClick(View v) {
-
+                
+                swicth(view v){
+                case R.id.signup_button:  
                 Intent intent = new Intent(getApplicationContext(), Signup.class);
                 startActivity(intent);
-            }
-        });
-        forgot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), forgetpassword.class);
+                break;
+                case R.id.logRin_button:
+                 break;
+                    case R.id.send_password:
+                    Intent intent = new Intent(getApplicationContext(), forgetpassword.class);
                 startActivity(intent);
             }
-        });
+         
+        };
+        
+      
 
     }
 }
